@@ -1,12 +1,12 @@
 package com.example.apicallingpractise
 
-data class DataModel(
-//    val userName : String ?= null,
-//   val orderId : String ?= null,
-//    val paymentAddress: String ?=null,
-//    val deliveryAddress : String ?=null
+data class DataModel (
 
-    val title : String ?= null,
-    val desc : String ?= null,
-    val image : String ?= null
+    val name: String,
+    val rollNo: String,
+
+    val course: String,
+    val image: String
+
+
 )

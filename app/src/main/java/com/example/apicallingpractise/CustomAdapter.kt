@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
-class CustomAdapter( val context: Context, val DataList:List<DataModel>):BaseAdapter() {
+class UserCustomAdapter(val context: Context, val DataList: List<DataModel>):BaseAdapter() {
     override fun getCount(): Int {
         return DataList.size
     }
@@ -23,17 +23,18 @@ class CustomAdapter( val context: Context, val DataList:List<DataModel>):BaseAda
         return position.toLong()
     }
 
-    @SuppressLint("ViewHolder")
+    @SuppressLint("ViewHolder", "MissingInflatedId")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
       val rowView=LayoutInflater.from(context).inflate(R.layout.customerlistview,parent,false)
-        val image=rowView.findViewById<ImageView>(R.id.image)
-        val data=DataList[position]
-        Glide.with(context).load(data.image).into(image)
-        val title=rowView.findViewById<TextView>(R.id.title)
-        val description=rowView.findViewById<TextView>(R.id.description)
-        title.setText(data.title)
-        description.setText(data.desc)
 
+
+        val studentName=   rowView.findViewById<TextView>(R.id.student_name)
+        val studentCourse=   rowView.findViewById<TextView>(R.id.student_course)
+        val image1=   rowView.findViewById<ImageView>(R.id.image)
+        studentName.text=DataList[position].name
+        studentCourse.text= DataList[position].course
+        val data=DataList[position]
+        Glide.with(context).load(data.image).into(image1)
         return rowView
     }
 }
